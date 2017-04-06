@@ -9,116 +9,131 @@
 */
 
 
-var playerScore = 0;										
-var playerName = prompt("Please enter your name and begin Terrible Twos!");
-var opponent = "";
-var opponentScore = 0;
 
-											
-pause(3000);
-console.log("Welcome, " + playerName + "! Looking forward to introducing you to the rules of Terrible Twos.");
-pause(4000);
-console.log("The rules are as follows:");
-console.log("You will soon be asked to roll a 6-sided die to determine what evil computer character you will be facing. After your opponent is determined, Terrible Twos will begin!");		
-pause(8000);
-console.log("The goal of the game is to reach 30 points before your opponent does. You will do this through a series of choices. Your choices are: Four, Eight, Ten, Twelve, or Twenty.");
-pause(8000);
-console.log("By choosing Four: you will roll two 4-sided dice. If either of the dice are a 2, no points will be added and your score will decrease by 2. If you roll doubles, your sum of dice will double and be added to your score (i.e. roll two 3's, their sum is 6, 6 is doubled and 12 points are added to your score). There is no penalty for double 2's other than score decreasing by 2. Otherwise, sum of dice will be added to your total score (i.e. roll a 1 and 4, 5 points are added to your score).");
-alert("Click OK " + playerName + ", when you've fully understand implications of choosing Four!");
-console.log("By choosing Eight: you will roll an 8-sided die. If you roll any 2s, no points will be added and your score will decrease by 4. Otherwise, the number on the die that you roll will be added to your total score (i.e. roll a 7, 7 points are added to your score).");			
-alert("Click OK " + playerName + ", when you've fully understand implications of choosing Eight!");			
-console.log("By choosing Ten:	you will roll a 10-sided die. If you roll any 2s, no points will be added and your score will decrease by 5. Otherwise, the number on the die that you roll will be added to your total score (i.e. roll a 9, 9 points are added to your score).");		
-alert("Click OK " + playerName + ", when you've fully understand implications of choosing Ten!");			
-console.log("By choosing Twelve: you will roll a 12-sided die. If you roll any 2s, no points will be added and your score will decrease by 5. Keep in mind, 12 has a 2 in it! If you roll either a 2 or a 12 your score will decrease by 5. Otherwise, the number on the die that you roll will be added to your total score (i.e. roll a 11, 11 points are added to your score).");			
-alert("Click OK " + playerName + ", when you've fully understand implications of choosing Twelve!");			
-console.log("By choosing Twenty: you will roll a 20-sided die. If you roll a 2, no points will be added and your score will decrease by 6, Keep in mind, 12 and 20 both have 2s in them! If you roll either a 2, 12 or 20 your score will decrease by 6. Otherwise, the number on the die that you roll will be added to your total score (i.e. roll a 16, 16 points are added to your score).");
-alert("Click OK " + playerName + ", when you've fully understand implications of choosing Twenty!");
-console.log("You and the computer will take turns making a choice, and you will be up first.");
-pause(3000);
-console.log("Looks like you're all ready to begin!");
-pause(3000);
-																
+			//Master Function = terribleTwos
 
-alert(playerName + ", click OK to roll the die and choose your opponent!");
-pause(1000);
-var opponent = Math.random();
-	if (opponent <= 0.16) {
-		opponent = "Darth Vader";
-	} 
-	else if (opponent <= 0.33) {
-		opponent = "Agent Smith";
-	}
-	else if (opponent < 0.50) {
-		opponent = "Mark Zuckerberg";
-	}
-	else if (opponent <= 0.66) {
-		opponent = "Dr. Evil";
-	}
-	else if (opponent <= 0.83) {
-		opponent = "Skynet";
-	}
-	else {
-		opponent = "Mugatu";
-	}
-console.log("Looks like your opponent is going to be " + opponent + "... yikes, what a tough one!");
-pause(2000);
-console.log("You and " + opponent + " will now face off in the game of Terrible Twos!!!");
+function terribleTwos (){
+	var playerName = introRules();
+	var opponent = chooseOpponent(playerName);
+	gameLoop(playerName, opponent);
+}
 
 
-function terribleTwosLoop (){
-	while (playerScore < 30 || opponentScore < 30) {
-		var userChoice = makeChoice(playerScore);
-		var opponentChoice = makeOpponentChoice (opponentScore);
-	}
+
+
+
+
+
+function introRules (){
+	var playerName = prompt("Please enter your name and begin Terrible Twos!");
+	console.log("Welcome, " + playerName + "! Looking forward to introducing you to the rules of Terrible Twos.");
+	pause(4000);						
+	console.log("The rules are as follows:");
+	console.log("You will soon be asked to roll a 6-sided die to determine what evil computer character you will be facing. After your opponent is determined, Terrible Twos will begin!");		
+	pause(8000);
+	console.log("The goal of the game is to reach 50 points before your opponent does. You will do this through a series of choices. Your choices are: Four, Eight, Ten, Twelve, or Twenty.");
+	pause(8000);
+	console.log("By choosing Four: you will roll two 4-sided dice. If either of the dice are a 2, no points will be added and your score will decrease by 2. If you roll doubles, your sum of dice will double and be added to your score (i.e. roll two 3's, their sum is 6, 6 is doubled and 12 points are added to your score). There is no penalty for double 2's other than score decreasing by 2. Otherwise, sum of dice will be added to your total score (i.e. roll a 1 and 4, 5 points are added to your score).");
+	alert("Click OK " + playerName + ", when you've fully understand implications of choosing Four!");
+	console.log("By choosing Eight: you will roll an 8-sided die. If you roll any 2s, no points will be added and your score will decrease by 4. Otherwise, the number on the die that you roll will be added to your total score (i.e. roll a 7, 7 points are added to your score).");			
+	alert("Click OK " + playerName + ", when you've fully understand implications of choosing Eight!");			
+	console.log("By choosing Ten:	you will roll a 10-sided die. If you roll any 2s, no points will be added and your score will decrease by 5. Otherwise, the number on the die that you roll will be added to your total score (i.e. roll a 9, 9 points are added to your score).");		
+	alert("Click OK " + playerName + ", when you've fully understand implications of choosing Ten!");			
+	console.log("By choosing Twelve: you will roll a 12-sided die. If you roll any 2s, no points will be added and your score will decrease by 5. Keep in mind, 12 has a 2 in it! If you roll either a 2 or a 12 your score will decrease by 5. Otherwise, the number on the die that you roll will be added to your total score (i.e. roll a 11, 11 points are added to your score).");			
+	alert("Click OK " + playerName + ", when you've fully understand implications of choosing Twelve!");			
+	console.log("By choosing Twenty: you will roll a 20-sided die. If you roll a 2, no points will be added and your score will decrease by 6, Keep in mind, 12 and 20 both have 2s in them! If you roll either a 2, 12 or 20 your score will decrease by 6. Otherwise, the number on the die that you roll will be added to your total score (i.e. roll a 16, 16 points are added to your score).");
+	alert("Click OK " + playerName + ", when you've fully understand implications of choosing Twenty!");
+	console.log("You and the computer will take turns making a choice, and you will be up first. If you happen to reach 50 first, your opponent is allowed one last chance.");
+	pause(3000);						
+	console.log("Looks like you're all ready to begin!");
+	pause(3000);						
+	return playerName;
+}																
+
+
+function chooseOpponent(playerName){
+	alert(playerName + ", click OK to roll the die and choose your opponent!");
+	pause(1000);
+	var opponent = Math.random();
+		if (opponent <= 0.16) {
+			opponent = "Darth Vader";
+		} 
+		else if (opponent <= 0.33) {
+			opponent = "Agent Smith";
+		}
+		else if (opponent < 0.50) {
+			opponent = "Mark Zuckerberg";
+		}
+		else if (opponent <= 0.66) {
+			opponent = "Dr. Evil";
+		}
+		else if (opponent <= 0.83) {
+			opponent = "Skynet";
+		}
+		else {
+			opponent = "Mugatu";
+		}
+	console.log("Looks like your opponent is going to be " + opponent + "... yikes, what a tough one!");
 	pause(2000);
-	if(playerScore >= 30){
+	console.log("You and " + opponent + " will now face off in the game of Terrible Twos!!!");
+	return opponent;
+}
+
+
+function gameLoop (playerName, opponent){
+	var playerScore = 0;
+	var opponentScore = 0;
+	while (playerScore < 50 && opponentScore < 50) {
+		playerScore = makeChoice(playerName, playerScore);
+		opponentScore = makeOpponentChoice (playerName, opponent, opponentScore);
+	}
+	pause(1000);
+	if(playerScore >= 50){
 		console.log("Congratulations " + playerName + "! You won!!");
 	}
-	else if(opponentScore >= 30){
-		console.log("I'm sorry" + playerName + "... " + opponent + " has defeated you.");
+	else if(opponentScore >= 50){
+		console.log("Well " + playerName + "... You gave it your best shot! Unfortunately you couldn't out hustle " + opponent + " and he has defeated you.");
 	}
 }
-terribleTwosLoop();
 
 
-
-
-//Functions below all used to create loop!
-								
-
-function makeChoice (){
+function makeChoice (playerName, playerScore){
 	var userChoice = "";
 	userChoice = prompt(playerName + " it's your turn! Do you choose either Four, Eight, Ten, Twelve, or Twenty?");
 	if (userChoice.toLowerCase() === "four"){
 		console.log("You chose Four.");
 		pause(2000);
-		choseFour();
+		playerScore = choseFour(playerName, playerScore);
+		return playerScore;
 	}
 	else if (userChoice.toLowerCase() === "eight"){
 		console.log("You chose Eight.");
 		pause(2000);
-		choseEight();
+		playerScore = choseEight(playerName, playerScore);
+		return playerScore;
 	}
 	else if (userChoice.toLowerCase() === "ten"){
 		console.log("You chose Ten.");
 		pause(2000);
-		choseTen();
+		playerScore = choseTen(playerName, playerScore);
+		return playerScore;
 	}	
 	else if (userChoice.toLowerCase() === "twelve"){
 		console.log("You chose Twelve.");
 		pause(2000);
-		choseTwelve();
+		playerScore = choseTwelve(playerName, playerScore);
+		return playerScore;
 	}	
 	else if (userChoice.toLowerCase() === "twenty"){
 		console.log("You chose Twenty.");
 		pause(2000);
-		choseTwenty();
-	}	
-	return userChoice;
+		playerScore = choseTwenty(playerName, playerScore);
+		return playerScore;
+	}
 }
 
 
-function makeOpponentChoice () {
+function makeOpponentChoice (playerName, opponent, opponentScore) {
 	alert("Relax a bit " + playerName + ", it's " + opponent + "'s turn now. Let's see what he decided!");
 	pause(1000);
 	var opponentChoice = Math.random();
@@ -126,37 +141,41 @@ function makeOpponentChoice () {
 		opponentChoice = "Four";
 		console.log(opponent + " has chosen Four.");
 		pause(2000);
-		opponentFour ();
+		opponentScore = opponentFour (opponent, opponentScore);
+		return opponentScore;
 	} 
 	else if (opponentChoice <= 0.40) {
 		opponentChoice = "Eight";
 		console.log(opponent + " has chosen Eight.");
 		pause(2000);
-		opponentEight ();
+		opponentScore = opponentEight (opponent, opponentScore);
+		return opponentScore;
 	}
 	else if (opponentChoice <= 0.60) {
 		opponentChoice = "Ten";
 		console.log(opponent + " has chosen Ten.");
 		pause(2000);
-		opponentTen ();
+		opponentScore = opponentTen (opponent, opponentScore);
+		return opponentScore;
 	}
 	else if (opponentChoice <= 0.80) {
 		opponentChoice = "Twelve";
 		console.log(opponent + " has chosen Twelve.");
 		pause(2000);
-		opponentTwelve ();
+		opponentScore = opponentTwelve (opponent, opponentScore);
+		return opponentScore;
 	}
 	else {
 		opponentChoice = "Twenty";
 		console.log(opponent + " has chosen Twenty.");
 		pause(2000);
-		opponentTwenty ();
+		opponentScore = opponentTwenty (opponent, opponentScore);
+		return opponentScore;
 	}
-	return opponentChoice;
 }
 						
 												
-function choseFour (){
+function choseFour (playerName, playerScore){
 	var fourDie1 = Math.floor(Math.random() * 4 + 1);
 	var fourDie2 = Math.floor(Math.random() * 4 + 1);
 	var fourScore = 0;
@@ -177,7 +196,7 @@ function choseFour (){
 }									
 												
 			
-function choseEight (){
+function choseEight (playerName, playerScore){
 	var eightDie = Math.floor(Math.random() * 8 + 1);
 	var eightScore = 0;
 		if(eightDie === 2){
@@ -194,7 +213,7 @@ function choseEight (){
 }									
 													
 
-function choseTen (){
+function choseTen (playerName, playerScore){
 	var tenDie = Math.floor(Math.random() * 10 + 1);
 	var tenScore = 0;
 		if(tenDie === 2){
@@ -211,7 +230,7 @@ function choseTen (){
 }									
 												
 
-function choseTwelve (){
+function choseTwelve (playerName, playerScore){
 	var twelveDie = Math.floor(Math.random() * 12 + 1);
 	var twelveScore = 0;
 		if(twelveDie === 2 || twelveDie === 12){
@@ -228,7 +247,7 @@ function choseTwelve (){
 }									
 
 														
-function choseTwenty (){
+function choseTwenty (playerName, playerScore){
 	var twentyDie = Math.floor(Math.random() * 20 + 1);
 	var twentyScore = 0;
 		if(twentyDie === 2 || twentyDie === 12 || twentyDie === 20){
@@ -245,7 +264,7 @@ function choseTwenty (){
 }									
 
 
-function opponentFour (){
+function opponentFour (opponent, opponentScore){
 	var fourDie1 = Math.floor(Math.random() * 4 + 1);
 	var fourDie2 = Math.floor(Math.random() * 4 + 1);
 	var fourScore = 0;
@@ -266,7 +285,7 @@ function opponentFour (){
 }
 
 
-function opponentEight (){
+function opponentEight (opponent, opponentScore){
 	var eightDie = Math.floor(Math.random() * 8 + 1);
 	var eightScore = 0;
 		if(eightDie === 2){
@@ -283,7 +302,7 @@ function opponentEight (){
 }	
 
 
-function opponentTen (){
+function opponentTen (opponent, opponentScore){
 	var tenDie = Math.floor(Math.random() * 10 + 1);
 	var tenScore = 0;
 		if(tenDie === 2){
@@ -300,7 +319,7 @@ function opponentTen (){
 }
 
 													
-function opponentTwelve (){
+function opponentTwelve (opponent, opponentScore){
 	var twelveDie = Math.floor(Math.random() * 12 + 1);
 	var twelveScore = 0;
 		if(twelveDie === 2 || twelveDie === 12){
@@ -317,7 +336,7 @@ function opponentTwelve (){
 }														
 													
 													
-function opponentTwenty (){
+function opponentTwenty (opponent, opponentScore){
 	var twentyDie = Math.floor(Math.random() * 20 + 1);
 	var twentyScore = 0;
 		if(twentyDie === 2 || twentyDie === 12 || twentyDie === 20){
