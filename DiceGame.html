@@ -7,6 +7,16 @@
 		
 		<link rel="stylesheet" type="text/css" href="DiceGame.css">
 
+		<meta charset="UTF-8">
+		
+		<title>Dice Game</title>
+		
+		<meta name="description" content="Dice game involving multiple different numbered dice">
+		<meta name="keywords" content="Dice Game">
+		<meta name="author" content="Jen">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	
 	</head>
 	
@@ -16,7 +26,11 @@
 	<br>
 		<div class="container">
 		<br>
-		<h1><center>Terrible Twos!</center></h2>
+		<h1><center>Terrible Two's!</center></h2>
+		<br>
+		<br>
+		<br>
+		<br>
 		<br>
 		<br>
 			<input type="text" id="userInput"=></input>
@@ -57,14 +71,21 @@
 				<br>
 				<br>
 				<p id="listPlayer"></p>
+				<br>
 				<p id="listOpponent"></p>
 				<br>
 			</center>
 			<br>
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-4">
+					<div class="col-sm-3">
 						<center>
+						<br>
+						<br>
+						<br>
+						<h3>Make your choice!<br> Click one of the values below.</h3>
+						<br>
+						<br>
 						<button onclick="choseFour(playerScore, opponentScore)">Four</button>
 						<br><br>
 						<button onclick="choseEight(playerScore, opponentScore)">Eight</button>
@@ -75,8 +96,12 @@
 						<br><br>
 						<button onclick="choseTwenty(playerScore, opponentScore)">Twenty</button>
 						</center>
+						<br>
+						<br>
+						<br>
 					</div>
-					<div class="col-sm-8">
+					<div class="col-sm-9">
+						<center>
 						<div class="score-board">
 							<div class="player">
 								<h3 id="playerName">playerName</h3>
@@ -90,6 +115,14 @@
 									<p id="opponentScore">0</p>
 								</div>
 							</div>
+						</center>
+							<img class="moveImage" id="finishHimIMG" src="finishHim.jpg">
+							<img class="moveImage" id="darthVaderIMG" hidden src="darthVader.jpg">
+							<img class="moveImage" id="agentSmithIMG" hidden src="agentSmith.jpg">
+							<img class="moveImage" id="markZuckerbergIMG" hidden src="markZuckerberg.jpg">
+							<img class="moveImage" id="drEvilIMG" hidden src="drEvil.jpg">
+							<img class="moveImage" id="skynetIMG" hidden src="skynet.jpg">
+							<img class="moveImage" id="mugatuIMG" hidden src="mugatu.jpg">
 						</div>
 					</div>
 				</div>	

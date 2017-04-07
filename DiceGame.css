@@ -1,6 +1,6 @@
 .backgroundCSS {
-	background-color: #062f4f;
-	color: white;
+	background-color: #eac67a;
+	color: #233237;
 	font-family: Lucida Sans Unicode;	
 	font-size: 16px;
 	
@@ -8,7 +8,7 @@
 
 button {
 		border: none;
-		color: white;
+		color: 233237;
 		font-family: Lucida Console;
 		padding: 10px 12px;
 		text-align: center;
@@ -22,20 +22,21 @@ button {
 }
 
 button {
-		color: #813772; 
-		border: 2px solid #000000;
+		color: #eac67a; 
+		background-color: #233237;
+		border: 2px solid #984b43;
 }
 
 button:hover {
-		background-color: white;
-		color: #b82601;
+		background-color: #f4f2e6;
+		color: #984b43;
 }
 
 h1 {
 	font-family:Arial Black, Gadget, Sans-serif;
 	font-size: 70px;
-	color: #813772;
-	text-shadow: 1px 1px 4px black, 0 0 10px #2c3f38, 0 0 15px #b82601;
+	color: #984b43;
+	text-shadow: 1px 1px 4px #18121e, 0 0 10px #233237, 0 0 15px #233237;
 }
 
 input {
@@ -71,47 +72,49 @@ input {
 }
 
 #playerName	{
-	color: #813772;
+	color: #233237;
+	font-size: 35px;
 	font-weight: bold;
-	text-shadow: 0 0 5px #000;
+	text-shadow: 0 0 4px grey;
 }
 
 #opponentName 	{
-	color: #813772;
+	color: #233237;
+	font-size: 35px;
 	font-weight: bold;
-	text-shadow: 0 0 5px #000;
+	text-shadow: 0 0 4px grey;
 }
 
 #listOpponent {
 	font-family: Courier New;
-	font-size: 20px;
+	font-size: 30px;
 	font-weight: bold;
-	color: #b82601;
-	text-shadow: 0 0 5px #000;
+	color: #984b43;
+	text-shadow: 0 0 2px #000;
 }
 
 #listPlayer {
 	font-family: Courier New;
-	font-size: 20px;
+	font-size: 30px;
 	font-weight: bold;
-	color: #b82601;
-	text-shadow: 0 0 5px #000;
+	color: #984b43;
+	text-shadow: 0 0 2px #000;
 }
 
 #playerScore	{
 	font-family: Cursive;
-	font-size: 30px;
+	font-size: 40px;
 	font-weight: bold;
-	color: #b82601;
-	text-shadow: 0 0 10px #000;
+	color: #984b43;
+	text-shadow: 0 0 3px #233237;
 }
 
 #opponentScore	{
 	font-family: Cursive;
-	font-size: 30px;
+	font-size: 40px;
 	font-weight: bold;
-	color: #b82601;
-	text-shadow: 0 0 10px #000;
+	color: #984b43;
+	text-shadow: 0 0 3px #233237;
 }
 
 #centerButton {
@@ -119,8 +122,41 @@ input {
 	padding: 25px;
 }
 
+.moveImage	{
+	height: 300px;
+	width: 375px;
+	border-radius: 20px;
+	box-shadow: 4px 4px 4px #233237;
+    position: relative;
+    -webkit-animation: myfirst 5s infinite; 
+    -webkit-animation-direction: alternate; 
+    animation: myfirst 5s infinite;
+}
 
+@-webkit-keyframes myfirst {
+    0%   {background: red; left: 0px; top: 0px;}
+    25%  {background: yellow; left: 100px; top: 0px;}
+    50%  {background: blue; left: 100px; top: 100px;}
+    75%  {background: green; left: 0px; top: 100px;}
+    100% {background: red; left: 0px; top: 0px;}
+}
 
+@keyframes myfirst {
+    0%   {background: red; left: 0px; top: 0px;}
+    25%  {background: yellow; left: 400px; top: 0px;}
+    50%  {background: blue; left: 400px; top: 100px;}
+    75%  {background: green; left: 0px; top: 100px;}
+    100% {background: red; left: 0px; top: 0px;}
+}
 
+.loserBackground	{
+	background-color: black;
+}
 
+.jackCrying	{
+	height: 500px;
+	width: 700px;
+	border-radius: 20px;
+	box-shadow: 4px 4px 4px #233237;
+}
 

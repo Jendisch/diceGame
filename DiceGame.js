@@ -13,7 +13,7 @@
 function introPlayer (){
 	var playerName = document.getElementById("userInput").value;
 	document.getElementById("playerName").innerHTML = playerName;
-	document.getElementById("intro1").innerHTML = "Welcome, " + playerName + "! Looking forward to introducing you to the rules of Terrible Twos. Click the button below on the left to read a list of the game rules. <br>";
+	document.getElementById("intro1").innerHTML = "Welcome, " + playerName + "! Looking forward to introducing you to the rules of Terrible Two's. Click the button below on the left to read a list of the game rules. <br>";
 	return playerName;
 }
 
@@ -24,24 +24,43 @@ function introRules(playerName){
 }																
 
 function chooseOpponent(playerName){
+	
 	var opponent = Math.random();
+		document.getElementById("darthVaderIMG").setAttribute("hidden", true);
+		document.getElementById("agentSmithIMG").setAttribute("hidden", true);
+		document.getElementById("markZuckerbergIMG").setAttribute("hidden", true);
+		document.getElementById("drEvilIMG").setAttribute("hidden", true);
+		document.getElementById("skynetIMG").setAttribute("hidden", true);
+		document.getElementById("mugatuIMG").setAttribute("hidden", true);		
 		if (opponent <= 0.16) {
 			opponent = "Darth Vader";
+			document.getElementById("darthVaderIMG").removeAttribute("hidden");
+			document.getElementById("finishHimIMG").setAttribute("hidden", true);
 		} 
 		else if (opponent <= 0.33) {
 			opponent = "Agent Smith";
+			document.getElementById("agentSmithIMG").removeAttribute("hidden");
+			document.getElementById("finishHimIMG").setAttribute("hidden", true);
 		}
 		else if (opponent < 0.50) {
 			opponent = "Mark Zuckerberg";
+			document.getElementById("markZuckerbergIMG").removeAttribute("hidden");
+			document.getElementById("finishHimIMG").setAttribute("hidden", true);
 		}
 		else if (opponent <= 0.66) {
 			opponent = "Dr. Evil";
+			document.getElementById("drEvilIMG").removeAttribute("hidden");
+			document.getElementById("finishHimIMG").setAttribute("hidden", true);
 		}
 		else if (opponent <= 0.83) {
 			opponent = "Skynet";
+			document.getElementById("skynetIMG").removeAttribute("hidden");
+			document.getElementById("finishHimIMG").setAttribute("hidden", true);
 		}
 		else {
 			opponent = "Mugatu";
+			document.getElementById("mugatuIMG").removeAttribute("hidden");
+			document.getElementById("finishHimIMG").setAttribute("hidden", true);
 		}
 	document.getElementById("listOpponent").innerHTML = ("Looks like your opponent is going to be " + opponent + "... yikes, what a tough one!");
 	document.getElementById("opponentName").innerHTML = opponent;	
@@ -51,14 +70,6 @@ function chooseOpponent(playerName){
 
 var playerScore = 0;
 var opponentScore = 0;
-
-
-if(playerScore >= 50){
-		document.write("Congratulations! You won!! Go brag to all of your friends.");
-	}
-else if(opponentScore >= 50){
-		document.write("Well... You gave it your best shot! <br> BUT, YOU LOST! <br> Better luck next time chump.");
-	}
 
 	
 function choseFour (){
@@ -79,6 +90,7 @@ function choseFour (){
 	updatePlayerScore(playerScore);
 	
 	opponentTurn(opponentScore);
+	whoWins();
 }
 
 
@@ -96,6 +108,7 @@ function choseEight (){
 	updatePlayerScore(playerScore);
 	
 	opponentTurn(opponentScore);
+	whoWins();
 }	
 
 
@@ -113,6 +126,7 @@ function choseTen (){
 	updatePlayerScore(playerScore);
 	
 	opponentTurn(opponentScore);
+	whoWins();
 }	
 
 
@@ -130,6 +144,7 @@ function choseTwelve (){
 	updatePlayerScore(playerScore);
 	
 	opponentTurn(opponentScore);
+	whoWins();
 }	
 
 
@@ -147,6 +162,7 @@ function choseTwenty (){
 	updatePlayerScore(playerScore);
 	
 	opponentTurn(opponentScore);
+	whoWins();
 }	
 
 
@@ -186,6 +202,15 @@ function updateOpponentScore(opponentScore){
 	return opponentScore;
 }
 
+
+function whoWins (){
+	if(playerScore >= 100){
+		var winnerPage = window.open("winnerPage.html");
+	}
+	else if(opponentScore >= 100){
+		var loserPage = window.open("loserPage.html");
+	}
+}
 
 function opponentFour (){
 	var fourDie1 = Math.floor(Math.random() * 4 + 1);
