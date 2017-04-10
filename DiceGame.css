@@ -135,8 +135,8 @@ input {
 
 @-webkit-keyframes myfirst {
     0%   {background: red; left: 0px; top: 0px;}
-    25%  {background: yellow; left: 100px; top: 0px;}
-    50%  {background: blue; left: 100px; top: 100px;}
+    25%  {background: yellow; left: 400px; top: 0px;}
+    50%  {background: blue; left: 400px; top: 100px;}
     75%  {background: green; left: 0px; top: 100px;}
     100% {background: red; left: 0px; top: 0px;}
 }
